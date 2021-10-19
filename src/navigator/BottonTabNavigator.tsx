@@ -5,7 +5,8 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import Tab1Screen from '../screens/Tab1Screen';
 import { TopTabNavigator } from './TopTabNavigator';
 import StackNavigator from './StackNavigator';
-import { colors } from '../theme/globalStyles';
+import { colors, globalStyles } from '../theme/globalStyles';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 type RootTabParams = {
   Tab1Screen: undefined;
@@ -26,9 +27,7 @@ const BottonTabIOS = createBottomTabNavigator<RootTabParams>();
 const TabsNavigatorIOS = () => {
   return (
     <BottonTabIOS.Navigator
-      sceneContainerStyle={{
-        backgroundColor: 'white',
-      }}
+      sceneContainerStyle={globalStyles.bgColor}
       screenOptions={({ route }) => ({
         tabBarActiveTintColor: colors.primary,
         tabBarStyle: {
@@ -43,16 +42,20 @@ const TabsNavigatorIOS = () => {
           let iconName: string;
           switch (route.name) {
             case 'Tab1Screen':
-              iconName = 'T1';
+              iconName = 'airplane';
               break;
             case 'TopTabNavigator':
-              iconName = 'T2';
+              iconName = 'moon';
               break;
             case 'StackNavigator':
-              iconName = 'T3';
+              iconName = 'create';
               break;
           }
-          return <Text style={{ color }}>{iconName}</Text>;
+          return (
+            <Text>
+              <Icon name={`${iconName}-outline`} size={20} color={color} />
+            </Text>
+          );
         },
       })}>
       <BottonTabIOS.Screen
@@ -100,16 +103,20 @@ const TabsNavigatorAndroid = () => {
           let iconName: string;
           switch (route.name) {
             case 'Tab1Screen':
-              iconName = 'T1';
+              iconName = 'airplane';
               break;
             case 'TopTabNavigator':
-              iconName = 'T2';
+              iconName = 'moon';
               break;
             case 'StackNavigator':
-              iconName = 'T3';
+              iconName = 'create';
               break;
           }
-          return <Text style={{ color }}>{iconName}</Text>;
+          return (
+            <Text>
+              <Icon name={`${iconName}-outline`} size={20} color={color} />
+            </Text>
+          );
         },
       })}>
       <BottonTabAndroid.Screen

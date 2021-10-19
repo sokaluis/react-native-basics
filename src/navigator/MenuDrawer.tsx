@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Image, useWindowDimensions, View } from 'react-native';
+import { Image, Text, useWindowDimensions, View } from 'react-native';
 import {
   createDrawerNavigator,
   DrawerContentComponentProps,
@@ -10,8 +10,9 @@ import {
 import { SettinsScreen } from '../screens/SettinsScreen';
 import { globalStyles } from '../theme/globalStyles';
 import { Tabs } from './BottonTabNavigator';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-export type RootDrawerParams = {
+type RootDrawerParams = {
   StackNavigator: undefined;
   SettinsScreen: undefined;
   TabsNavigator: undefined;
@@ -27,6 +28,11 @@ export function MenuDrawer() {
         drawerType: width >= 768 ? 'permanent' : 'front',
         drawerActiveTintColor: 'red',
         drawerLabelStyle: { fontSize: 18 },
+        drawerIcon: ({ color }) => (
+          <Text>
+            <Icon name="newspaper-outline" size={20} color={color} />
+          </Text>
+        ),
       }}
       drawerContent={props => <CustomDrawerContent {...props} />}>
       <Drawer.Screen name="TabsNavigator" component={Tabs} />
@@ -49,6 +55,7 @@ function CustomDrawerContent(props: DrawerContentComponentProps) {
       <DrawerItemList {...props} />
       <DrawerItem
         label="Help"
+        icon={({ color }) => <Icon color={color} size={20} name="heart" />}
         onPress={() => {
           props.navigation.navigate('SettinsScreen');
         }}

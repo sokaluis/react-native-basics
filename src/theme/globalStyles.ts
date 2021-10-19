@@ -8,6 +8,9 @@ export const globalStyles = StyleSheet.create({
   globalMargin: {
     marginHorizontal: 20,
   },
+  bgColor: {
+    backgroundColor: 'white',
+  },
   title: {
     fontSize: 30,
     marginBottom: 30,
