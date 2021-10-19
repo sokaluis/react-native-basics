@@ -4,7 +4,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import StackNavigator from './StackNavigator';
 import { SettinsScreen } from '../screens/SettinsScreen';
 
-export type RootDrawerParams = {
+type RootDrawerParams = {
   StackNavigator: undefined;
   SettinsScreen: undefined;
 };

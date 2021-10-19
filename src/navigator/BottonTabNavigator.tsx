@@ -3,13 +3,13 @@ import { Platform, Text } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import Tab1Screen from '../screens/Tab1Screen';
-import Tab2Screen from '../screens/Tab2Screen';
+import { TopTabNavigator } from './TopTabNavigator';
 import StackNavigator from './StackNavigator';
 import { colors } from '../theme/globalStyles';
 
 type RootTabParams = {
   Tab1Screen: undefined;
-  Tab2Screen: undefined;
+  TopTabNavigator: undefined;
   StackNavigator: undefined;
 };
 
@@ -45,7 +45,7 @@ const TabsNavigatorIOS = () => {
             case 'Tab1Screen':
               iconName = 'T1';
               break;
-            case 'Tab2Screen':
+            case 'TopTabNavigator':
               iconName = 'T2';
               break;
             case 'StackNavigator':
@@ -63,9 +63,9 @@ const TabsNavigatorIOS = () => {
         component={Tab1Screen}
       />
       <BottonTabIOS.Screen
-        name="Tab2Screen"
+        name="TopTabNavigator"
         options={{ title: 'Tab 2' }}
-        component={Tab2Screen}
+        component={TopTabNavigator}
       />
       <BottonTabIOS.Screen
         name="StackNavigator"
@@ -82,6 +82,7 @@ const TabsNavigatorAndroid = () => {
   return (
     <BottonTabAndroid.Navigator
       shifting
+      sceneAnimationEnabled
       barStyle={{
         backgroundColor: colors.primary,
       }}
@@ -101,7 +102,7 @@ const TabsNavigatorAndroid = () => {
             case 'Tab1Screen':
               iconName = 'T1';
               break;
-            case 'Tab2Screen':
+            case 'TopTabNavigator':
               iconName = 'T2';
               break;
             case 'StackNavigator':
@@ -119,9 +120,9 @@ const TabsNavigatorAndroid = () => {
         component={Tab1Screen}
       />
       <BottonTabAndroid.Screen
-        name="Tab2Screen"
+        name="TopTabNavigator"
         options={{ title: 'Tab 2' }}
-        component={Tab2Screen}
+        component={TopTabNavigator}
       />
       <BottonTabAndroid.Screen
         name="StackNavigator"
