@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Image, useWindowDimensions, View} from 'react-native';
+import { Image, useWindowDimensions, View } from 'react-native';
 import {
   createDrawerNavigator,
   DrawerContentComponentProps,
@@ -7,9 +7,9 @@ import {
   DrawerItem,
   DrawerItemList,
 } from '@react-navigation/drawer';
-import {SettinsScreen} from '../screens/SettinsScreen';
-import {globalStyles} from '../theme/globalStyles';
-import {TabsNavigator} from './BottonTabNavigator';
+import { SettinsScreen } from '../screens/SettinsScreen';
+import { globalStyles } from '../theme/globalStyles';
+import { Tabs } from './BottonTabNavigator';
 
 export type RootDrawerParams = {
   StackNavigator: undefined;
@@ -20,16 +20,16 @@ export type RootDrawerParams = {
 const Drawer = createDrawerNavigator<RootDrawerParams>();
 
 export function MenuDrawer() {
-  const {width} = useWindowDimensions();
+  const { width } = useWindowDimensions();
   return (
     <Drawer.Navigator
       screenOptions={{
         drawerType: width >= 768 ? 'permanent' : 'front',
         drawerActiveTintColor: 'red',
-        drawerLabelStyle: {fontSize: 18},
+        drawerLabelStyle: { fontSize: 18 },
       }}
       drawerContent={props => <CustomDrawerContent {...props} />}>
-      <Drawer.Screen name="TabsNavigator" component={TabsNavigator} />
+      <Drawer.Screen name="TabsNavigator" component={Tabs} />
       <Drawer.Screen name="SettinsScreen" component={SettinsScreen} />
     </Drawer.Navigator>
   );

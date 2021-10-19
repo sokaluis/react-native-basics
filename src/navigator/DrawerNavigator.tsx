@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {useWindowDimensions} from 'react-native';
-import {createDrawerNavigator} from '@react-navigation/drawer';
+import { useWindowDimensions } from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import StackNavigator from './StackNavigator';
-import {SettinsScreen} from '../screens/SettinsScreen';
+import { SettinsScreen } from '../screens/SettinsScreen';
 
 export type RootDrawerParams = {
   StackNavigator: undefined;
@@ -12,7 +12,7 @@ export type RootDrawerParams = {
 const Drawer = createDrawerNavigator<RootDrawerParams>();
 
 export function DrawerNavigator() {
-  const {width} = useWindowDimensions();
+  const { width } = useWindowDimensions();
   return (
     <Drawer.Navigator
       screenOptions={{
@@ -21,12 +21,12 @@ export function DrawerNavigator() {
       }}>
       <Drawer.Screen
         name="StackNavigator"
-        options={{title: 'Home'}}
+        options={{ title: 'Home' }}
         component={StackNavigator}
       />
       <Drawer.Screen
         name="SettinsScreen"
-        options={{title: 'Settings'}}
+        options={{ title: 'Settings' }}
         component={SettinsScreen}
       />
     </Drawer.Navigator>
