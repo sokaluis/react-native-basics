@@ -2,21 +2,27 @@ import React from 'react';
 import { LogBox } from 'react-native';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
-// import StackNavigator from './src/navigator/StackNavigator';
-// import {DrawerNavigator} from './src/navigator/DrawerNavigator';
 import { MenuDrawer } from './src/navigator/MenuDrawer';
+import { AuthProvider } from './src/context/AuthContext';
 
 // Reanimate warning of version 1.4.0
-LogBox.ignoreLogs(['NativeEventEmitter']);
+LogBox.ignoreLogs([
+  'NativeEventEmitter',
+  '_reactNative.Keyboard.removeListener',
+]);
 
 const App = () => {
   return (
     <NavigationContainer>
-      {/* <StackNavigator /> */}
-      {/* <DrawerNavigator /> */}
-      <MenuDrawer />
+      <AppState>
+        <MenuDrawer />
+      </AppState>
     </NavigationContainer>
   );
+};
+
+const AppState = ({ children }: { children: JSX.Element }) => {
+  return <AuthProvider>{children}</AuthProvider>;
 };
 
 export default App;
