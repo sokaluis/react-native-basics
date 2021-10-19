@@ -25,7 +25,7 @@ export function MenuDrawer() {
       screenOptions={{
         drawerType: width >= 768 ? 'permanent' : 'front',
         drawerActiveTintColor: 'red',
-        drawerLabelStyle: {color: '#ccc'},
+        drawerLabelStyle: {fontSize: 18},
       }}
       drawerContent={props => <CustomDrawerContent {...props} />}>
       <Drawer.Screen name="StackNavigator" component={StackNavigator} />
