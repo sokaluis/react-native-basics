@@ -7,13 +7,14 @@ import {
   DrawerItem,
   DrawerItemList,
 } from '@react-navigation/drawer';
-import StackNavigator from './StackNavigator';
 import {SettinsScreen} from '../screens/SettinsScreen';
 import {globalStyles} from '../theme/globalStyles';
+import {TabsNavigator} from './BottonTabNavigator';
 
 export type RootDrawerParams = {
   StackNavigator: undefined;
   SettinsScreen: undefined;
+  TabsNavigator: undefined;
 };
 
 const Drawer = createDrawerNavigator<RootDrawerParams>();
@@ -28,7 +29,7 @@ export function MenuDrawer() {
         drawerLabelStyle: {fontSize: 18},
       }}
       drawerContent={props => <CustomDrawerContent {...props} />}>
-      <Drawer.Screen name="StackNavigator" component={StackNavigator} />
+      <Drawer.Screen name="TabsNavigator" component={TabsNavigator} />
       <Drawer.Screen name="SettinsScreen" component={SettinsScreen} />
     </Drawer.Navigator>
   );
