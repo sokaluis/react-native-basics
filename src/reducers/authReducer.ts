@@ -5,7 +5,7 @@ export interface IAuthAction {
   payload?: string;
 }
 
-type ActionType = 'SIGN_IN' | 'ADD_ICON' | 'LOG_OUT';
+type ActionType = 'SIGN_IN' | 'ADD_ICON' | 'LOG_OUT' | 'ADD_USERNAME';
 
 export const authReducer = (state: AuthState, action: IAuthAction): AuthState => {
   switch (action.type) {
@@ -28,6 +28,12 @@ export const authReducer = (state: AuthState, action: IAuthAction): AuthState =>
         isLoggedIn: false,
         username: undefined,
         favoriteIcon: undefined
+      };
+
+    case 'ADD_USERNAME':
+      return {
+        ...state,
+        username: action.payload
       };
 
     default:
