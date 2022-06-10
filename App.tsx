@@ -2,7 +2,7 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 // import { StackNavigator } from './src/navigator/StackNavigator';
-// import { MenuLateralBasico } from './src/navigator/MenuLateralBasico';
+// import { MenuLateralBasic } from './src/navigator/MenuLateralBasic';
 import { MenuLateral } from './src/navigator/MenuLateral';
 import { AuthProvider } from './src/context/AuthContext';
 // import { Tabs } from './src/navigator/Tabs';
@@ -12,7 +12,7 @@ const App = () => {
     <NavigationContainer>
       <AppState>
         {/* <StackNavigator /> */}
-        {/* <MenuLateralBásico /> */}
+        {/* <MenuLateralBasic /> */}
         <MenuLateral />
         {/* <Tabs /> */}
       </AppState>
