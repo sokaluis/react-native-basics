@@ -22,6 +22,14 @@ export const authReducer = (state: AuthState, action: IAuthAction): AuthState =>
         favoriteIcon: action.payload
       };
 
+    case 'LOG_OUT':
+      return {
+        ...state,
+        isLoggedIn: false,
+        username: undefined,
+        favoriteIcon: undefined
+      };
+
     default:
       return state;
   }
